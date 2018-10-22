@@ -4,8 +4,11 @@
 class HUDHitDisplay expands HUDBaseWindow;
 
 // Vanilla Matters: Custom border for FP bar and a window for shield compatible HUD.
+// Stupid Ex: Import these using 'ucc build'.
+/*
 #exec TEXTURE IMPORT FILE="Textures\HUDHitDisplayBorder_1.bmp"		NAME="HUDHitDisplayBorder_1"		GROUP="VMUI" MIPS=Off
 // #exec TEXTURE IMPORT FILE="Textures\HUDHitDisplayBody.bmp"		NAME="HUDHitDisplay_Body"		GROUP="VMUI" MIPS=Off
+*/
 
 struct BodyPart
 {
@@ -308,7 +311,7 @@ function DrawBorder(GC gc)
 
 		// Vanilla Matters: Pick the appropriate border for FP.
 		if ( player.VM_bEnableFP ) {
-			gc.DrawTexture( 0, 0, 84, 106, 0, 0, Texture'DeusEx.VMUI.HUDHitDisplayBorder_1' );
+			gc.DrawTexture( 0, 0, 84, 106, 0, 0, Texture'DeusEx.UserInterface.HUDHitDisplayBorder_1' );
 		}
 		else {
 			gc.DrawTexture( 0, 0, 84, 106, 0, 0, texBorder );

@@ -4,11 +4,14 @@
 class WeaponPepperGun extends DeusExWeapon;
 
 // Vanilla Matters
+// Stupid Ex: Import these using 'ucc build'.
+/*
 #exec AUDIO IMPORT FILE="Sounds\PepperGun\fire1.wav"		NAME="PepperGunFire1"		GROUP="VMSounds"
 #exec AUDIO IMPORT FILE="Sounds\PepperGun\fire2.wav"		NAME="PepperGunFire2"		GROUP="VMSounds"
 #exec AUDIO IMPORT FILE="Sounds\PepperGun\fire3.wav"		NAME="PepperGunFire3"		GROUP="VMSounds"
 #exec AUDIO IMPORT FILE="Sounds\PepperGun\fire4.wav"		NAME="PepperGunFire4"		GROUP="VMSounds"
 #exec AUDIO IMPORT FILE="Sounds\PepperGun\fire5.wav"		NAME="PepperGunFire5"		GROUP="VMSounds"
+*/
 
 // Vanilla Matters
 var int VM_currentSoundIndex;
@@ -44,10 +47,10 @@ simulated function PlayFiringSound() {
 
 // Vanilla Matters: Reset the sound index when not firing.
 simulated function Tick( float deltaTime ) {
-	local Pawn p;
-
-	p = Pawn( Owner );
-	if ( p != none && p.bFire == 0 && !bFiring && VM_currentSoundIndex != 0 ) {
+//	local Pawn p;
+// Stupid Ex: Efficiency at its finest baby!
+//	p = Pawn( Owner );
+	if ( Owner.bIsPawn && Pawn(Owner).bFire == 0 && !bFiring && VM_currentSoundIndex != 0 ) {
 		VM_currentSoundIndex = 0;
 	}
 
@@ -56,11 +59,11 @@ simulated function Tick( float deltaTime ) {
 
 defaultproperties
 {
-     VM_fireSounds(0)=Sound'DeusEx.VMSounds.PepperGunFire1'
-     VM_fireSounds(1)=Sound'DeusEx.VMSounds.PepperGunFire2'
-     VM_fireSounds(2)=Sound'DeusEx.VMSounds.PepperGunFire3'
-     VM_fireSounds(3)=Sound'DeusEx.VMSounds.PepperGunFire4'
-     VM_fireSounds(4)=Sound'DeusEx.VMSounds.PepperGunFire5'
+     VM_fireSounds(0)=Sound'DeusEx.Weapons.PepperGunFire1'
+     VM_fireSounds(1)=Sound'DeusEx.Weapons.PepperGunFire2'
+     VM_fireSounds(2)=Sound'DeusEx.Weapons.PepperGunFire3'
+     VM_fireSounds(3)=Sound'DeusEx.Weapons.PepperGunFire4'
+     VM_fireSounds(4)=Sound'DeusEx.Weapons.PepperGunFire5'
      LowAmmoWaterMark=50
      GoverningSkill=Class'DeusEx.SkillWeaponLowTech'
      NoiseLevel=0.200000
@@ -94,7 +97,7 @@ defaultproperties
      FireOffset=(X=8.000000,Y=4.000000,Z=14.000000)
      ProjectileClass=Class'DeusEx.TearGas'
      shakemag=10.000000
-     FireSound=Sound'DeusEx.VMSounds.PepperGunFire1'
+     FireSound=Sound'DeusEx.Weapons.PepperGunFire1'
      AltFireSound=Sound'DeusExSounds.Weapons.PepperGunReloadEnd'
      CockingSound=Sound'DeusExSounds.Weapons.PepperGunReload'
      SelectSound=Sound'DeusExSounds.Weapons.PepperGunSelect'

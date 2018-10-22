@@ -5,12 +5,15 @@
 class PersonaScreenSkills extends PersonaScreenBaseWindow;
 
 // Vanilla Matters: Custom background and border to fix the empty spot of the removed skills.
+// Stupid Ex: Import these using 'ucc build'.
+/*
 #exec TEXTURE IMPORT FILE="Textures\SkillsBackground_4.bmp"		NAME="SkillsBackground_4"		GROUP="VMUI" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\SkillsBackground_5.bmp"		NAME="SkillsBackground_5"		GROUP="VMUI" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\SkillsBackground_6.bmp"		NAME="SkillsBackground_6"		GROUP="VMUI" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\SkillsBorder_4.bmp"		NAME="SkillsBorder_4"		GROUP="VMUI" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\SkillsBorder_5.bmp"		NAME="SkillsBorder_5"		GROUP="VMUI" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\SkillsBorder_6.bmp"		NAME="SkillsBorder_6"		GROUP="VMUI" MIPS=Off
+*/
 
 var PersonaActionButtonWindow btnUpgrade;
 var TileWindow                winTile;
@@ -431,15 +434,15 @@ defaultproperties
      clientTextures(0)=Texture'DeusExUI.UserInterface.SkillsBackground_1'
      clientTextures(1)=Texture'DeusExUI.UserInterface.SkillsBackground_2'
      clientTextures(2)=Texture'DeusExUI.UserInterface.SkillsBackground_3'
-     clientTextures(3)=Texture'DeusEx.VMUI.SkillsBackground_4'
-     clientTextures(4)=Texture'DeusEx.VMUI.SkillsBackground_5'
-     clientTextures(5)=Texture'DeusEx.VMUI.SkillsBackground_6'
+     clientTextures(3)=Texture'DeusEx.UserInterface.SkillsBackground_4'
+     clientTextures(4)=Texture'DeusEx.UserInterface.SkillsBackground_5'
+     clientTextures(5)=Texture'DeusEx.UserInterface.SkillsBackground_6'
      clientBorderTextures(0)=Texture'DeusExUI.UserInterface.SkillsBorder_1'
      clientBorderTextures(1)=Texture'DeusExUI.UserInterface.SkillsBorder_2'
      clientBorderTextures(2)=Texture'DeusExUI.UserInterface.SkillsBorder_3'
-     clientBorderTextures(3)=Texture'DeusEx.VMUI.SkillsBorder_4'
-     clientBorderTextures(4)=Texture'DeusEx.VMUI.SkillsBorder_5'
-     clientBorderTextures(5)=Texture'DeusEx.VMUI.SkillsBorder_6'
+     clientBorderTextures(3)=Texture'DeusEx.UserInterface.SkillsBorder_4'
+     clientBorderTextures(4)=Texture'DeusEx.UserInterface.SkillsBorder_5'
+     clientBorderTextures(5)=Texture'DeusEx.UserInterface.SkillsBorder_6'
      clientTextureRows=2
      clientTextureCols=3
      clientBorderTextureRows=2

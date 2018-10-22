@@ -18,6 +18,10 @@ var float crazedTimer;
 
 var(Sounds) sound explosionSound;
 
+// Stupid Ex: Make robots have ricochet noises like so.
+
+var(Sounds) sound armorRicochetSounds[3];
+
 function InitGenerator()
 {
 	local Vector loc;
@@ -618,6 +622,36 @@ function bool IsImmobile()
    return (!bHasReactions && !bHasFears && !bHasHates);
 }
 
+// ----------------------------------------------------------------------
+// PlayTakeHitSound()
+// ----------------------------------------------------------------------
+
+function PlayTakeHitSound(int Damage, name damageType, int Mult)
+{
+	local Sound snd;
+	local float rnd;
+	local float volume;
+	
+	rnd = FRand();
+
+	Super.PlayTakeHitSound(Damage, damageType, Mult);
+	
+	/*
+	if (rnd < 0.3)
+		snd = armorRicochetSounds[0];
+	else if (rnd < 0.6)
+		snd = armorRicochetSounds[1];	
+	else
+		snd = armorRicochetSounds[2];
+	*/
+	volume = FMax(Mult*TransientSoundVolume, Mult*2.0);
+	
+	snd = armorRicochetSounds[ Rand( 2 ) ];
+	
+	if ( (Damage > 5 && rnd < 0.75) && ((damageType == 'Shot') || (damageType == 'Sabot')))
+		PlaySound(snd, SLOT_None, volume,,, RandomPitch());
+}
+
 defaultproperties
 {
      EMPHitPoints=50
@@ -648,8 +682,11 @@ defaultproperties
      MaxStepHeight=4.000000
      Health=50
      HitSound1=Sound'DeusExSounds.Generic.Spark1'
-     HitSound2=Sound'DeusExSounds.Generic.Spark1'
-     Die=Sound'DeusExSounds.Generic.Spark1'
+     HitSound2=Sound'DeusEx.Generic.Spark3'
+     Die=Sound'DeusEx.Generic.Spark3'
      VisibilityThreshold=0.010000
      BindName="Robot"
+	 armorRicochetSounds(0)=Sound'DeusExSounds.Generic.ArmorRicochet'
+	 armorRicochetSounds(1)=Sound'DeusEx.Generic.ArmorRicochet2'
+	 armorRicochetSounds(2)=Sound'DeusEx.Generic.ArmorRicochet3'
 }

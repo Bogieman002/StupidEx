@@ -7,6 +7,8 @@ class DeusExPlayer extends PlayerPawnExt
 #exec OBJ LOAD FILE=Effects
 
 // Vanilla Matters
+// Stupid Ex: Import these using 'ucc build'.
+/*
 #exec TEXTURE IMPORT FILE="Textures\WeaponHandsTex1a.bmp"		NAME="WeaponHandsTex1a"		GROUP="VM" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\WeaponHandsTex2a.bmp"		NAME="WeaponHandsTex2a"		GROUP="VM" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\WeaponHandsTex3a.bmp"		NAME="WeaponHandsTex3a"		GROUP="VM" MIPS=Off
@@ -16,6 +18,7 @@ class DeusExPlayer extends PlayerPawnExt
 #exec TEXTURE IMPORT FILE="Textures\WeaponHandsTex2b.bmp"		NAME="WeaponHandsTex2b"		GROUP="VM" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\WeaponHandsTex3b.bmp"		NAME="WeaponHandsTex3b"		GROUP="VM" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\WeaponHandsTex4b.bmp"		NAME="WeaponHandsTex4b"		GROUP="VM" MIPS=Off
+*/
 
 // Name and skin assigned to PC by player on the Character Generation screen
 var travel String	TruePlayerName;
@@ -12895,30 +12898,30 @@ function Texture GetStyleTexture( ERenderStyle newStyle, texture oldTex, optiona
 function Texture GetHandsSkin() {
 	switch( PlayerSkin ) {
 		case 1:
-			return Texture'DeusEx.VM.WeaponHandsTex1a';
+			return Texture'DeusEx.Skins.WeaponHandsTex1a';
 		case 2:
-			return Texture'DeusEx.VM.WeaponHandsTex2a';
+			return Texture'DeusEx.Skins.WeaponHandsTex2a';
 		case 3:
-			return Texture'DeusEx.VM.WeaponHandsTex3a';
+			return Texture'DeusEx.Skins.WeaponHandsTex3a';
 		case 4:
-			return Texture'DeusEx.VM.WeaponHandsTex4a';
+			return Texture'DeusEx.Skins.WeaponHandsTex4a';
 		default:
-			return Texture'DeusExItems.WeaponHandsTex';
+			return Texture'DeusEx.Skins.WeaponHandsTex3a';
 	}
 }
 
 function Texture GetCrossbowHandsSkin() {
 	switch( PlayerSkin ) {
 		case 1:
-			return Texture'DeusEx.VM.WeaponHandsTex1b';
+			return Texture'DeusEx.Skins.WeaponHandsTex1b';
 		case 2:
-			return Texture'DeusEx.VM.WeaponHandsTex2b';
+			return Texture'DeusEx.Skins.WeaponHandsTex2b';
 		case 3:
-			return Texture'DeusEx.VM.WeaponHandsTex3b';
+			return Texture'DeusEx.Skins.WeaponHandsTex3b';
 		case 4:
-			return Texture'DeusEx.VM.WeaponHandsTex4b';
+			return Texture'DeusEx.Skins.WeaponHandsTex4b';
 		default:
-			return Texture'DeusExItems.MiniCrossbowTex1';
+			return Texture'DeusEx.Skins.WeaponHandsTex3b';
 	}
 }
 

@@ -304,11 +304,14 @@ simulated function SpawnEffects(Vector HitLocation, Vector HitNormal, Actor Othe
 	local int i;
 	local DeusExDecal mark;
    local Rockchip chip;
+   local name mat;
 
    // don't draw damage art on destroyed movers
 	if (DeusExMover(Other) != None)
 		if (DeusExMover(Other).bDestroyed)
 			ExplosionDecal = None;
+			
+	mat = GetWallMaterial(HitLocation, HitNormal);
 
 	// draw the explosion decal here, not in Engine.Projectile
 	if (ExplosionDecal != None)
@@ -332,7 +335,37 @@ simulated function SpawnEffects(Vector HitLocation, Vector HitNormal, Actor Othe
 		for (i=0; i<Damage/5; i++)
 			if (FRand() < 0.8)
          {
-				chip = spawn(class'Rockchip',,,HitLocation+HitNormal);
+			if (bStickToWall)
+			{
+				switch(mat)
+				{
+					case 'Foliage':
+					case 'Metal':
+					case 'Ladder':
+					case 'Ceramic':
+					case 'Glass':
+					case 'Tiles':
+						break;
+					case 'Textile':
+					case 'Paper':
+						chip = spawn(class'Paperchip',,,HitLocation+HitNormal);
+						break;
+					case 'Wood':
+						chip = spawn(class'Woodchip',,,HitLocation+HitNormal);
+						break;						
+					case 'Brick':
+					case 'Concrete':
+					case 'Stone':
+					case 'Earth':
+					case 'Stucco':
+					default:
+						chip = spawn(class'Rockchip',,,HitLocation+HitNormal);
+						break;
+				}
+			}
+			
+			else 
+				chip = spawn(class'Rockchip',,,Location+Vector(Rotation));
             //DEUS_EX AMSD In multiplayer, don't propagate these to 
             //other players (or from the listen server to clients).
             if (chip != None)            
@@ -659,6 +692,28 @@ auto simulated state Flying
 		Velocity = speed*initDir;
 		PlaySound(SpawnSound, SLOT_None);
 	}
+}
+
+function name GetWallMaterial(vector HitLocation, vector HitNormal)
+{
+	local vector EndTrace, StartTrace;
+	local actor target;
+	local int texFlags;
+	local name texName, texGroup;
+	
+	EndTrace = Location + ( Vector ( Rotation ) * 32 );
+	
+	if (Self.IsA('Shuriken'))
+		EndTrace = Location + ( InitDir * 32 );	
+
+	foreach TraceTexture(class'Actor', target, texName, texGroup, texFlags, HitLocation, HitNormal, EndTrace)
+		if ((target == Level) || target.IsA('Mover'))
+			break;
+			
+	log(texGroup);
+	log(texName);
+
+	return texGroup;
 }
 
 defaultproperties

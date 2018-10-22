@@ -311,5 +311,5 @@ defaultproperties
      LevelValues(2)=600.000000
      LevelValues(3)=800.000000
      MPConflictSlot=7
-     VM_dragIcon=Texture'DeusEx.VMUI.AugIconDefense'
+     VM_dragIcon=Texture'DeusEx.Icons.AugIconDefense'
 }

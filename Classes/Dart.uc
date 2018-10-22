@@ -17,6 +17,7 @@ defaultproperties
 {
      bBlood=True
      bStickToWall=True
+	 bDebris=True
      DamageType=shot
      spawnAmmoClass=Class'DeusEx.AmmoDart'
      bIgnoresNanoDefense=True

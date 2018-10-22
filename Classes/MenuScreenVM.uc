@@ -2,10 +2,13 @@
 // MenuScreenVM
 //=============================================================================
 
-// // Vanilla Matters: Custom textures for this menu.
+// Vanilla Matters: Custom textures for this menu.
+// Stupid Ex: Import these using 'ucc build'.
+/*
 #exec TEXTURE IMPORT FILE="Textures\MenuVMBackground_1.bmp"		NAME="MenuVMBackground_1"		GROUP="VMUI" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\MenuVMBackground_2.bmp"		NAME="MenuVMBackground_2"		GROUP="VMUI" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\MenuVMBackground_3.bmp"		NAME="MenuVMBackground_3"		GROUP="VMUI" MIPS=Off
+*/
 
 class MenuScreenVM expands MenuUIScreenWindow;
 
@@ -41,9 +44,9 @@ defaultproperties
      Title="Vanilla Matters"
      ClientWidth=537
      ClientHeight=228
-     clientTextures(0)=Texture'DeusEx.VMUI.MenuVMBackground_1'
-     clientTextures(1)=Texture'DeusEx.VMUI.MenuVMBackground_2'
-     clientTextures(2)=Texture'DeusEx.VMUI.MenuVMBackground_3'
+     clientTextures(0)=Texture'DeusEx.UserInterface.MenuVMBackground_1'
+     clientTextures(1)=Texture'DeusEx.UserInterface.MenuVMBackground_2'
+     clientTextures(2)=Texture'DeusEx.UserInterface.MenuVMBackground_3'
      textureRows=1
      helpPosY=174
 }

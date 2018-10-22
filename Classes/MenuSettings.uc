@@ -3,10 +3,12 @@
 //=============================================================================
 
 // Vanilla Matters: Custom textures for new menu slot.
+/*
 #exec TEXTURE IMPORT FILE="Textures\MenuOptionsBackground_1.bmp"		NAME="MenuOptionsBackground_1"		GROUP="VMUI" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\MenuOptionsBackground_2.bmp"		NAME="MenuOptionsBackground_2"		GROUP="VMUI" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\MenuOptionsBackground_3.bmp"		NAME="MenuOptionsBackground_3"		GROUP="VMUI" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\MenuOptionsBackground_4.bmp"		NAME="MenuOptionsBackground_4"		GROUP="VMUI" MIPS=Off
+*/
 
 class MenuSettings expands MenuUIMenuWindow;
 
@@ -36,9 +38,9 @@ defaultproperties
      Title="Settings"
      ClientWidth=294
      ClientHeight=344
-     clientTextures(0)=Texture'DeusEx.VMUI.MenuOptionsBackground_1'
-     clientTextures(1)=Texture'DeusEx.VMUI.MenuOptionsBackground_2'
-     clientTextures(2)=Texture'DeusEx.VMUI.MenuOptionsBackground_3'
-     clientTextures(3)=Texture'DeusEx.VMUI.MenuOptionsBackground_4'
+     clientTextures(0)=Texture'DeusEx.UserInterface.MenuOptionsBackground_1'
+     clientTextures(1)=Texture'DeusEx.UserInterface.MenuOptionsBackground_2'
+     clientTextures(2)=Texture'DeusEx.UserInterface.MenuOptionsBackground_3'
+     clientTextures(3)=Texture'DeusEx.UserInterface.MenuOptionsBackground_4'
      textureCols=2
 }

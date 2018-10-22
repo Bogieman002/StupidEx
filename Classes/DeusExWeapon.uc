@@ -2815,7 +2815,9 @@ simulated function TraceFire( float Accuracy )
 		// randomly draw a tracer for relevant ammo types
 		// don't draw tracers if we're zoomed in with a scope - looks stupid
 		// DEUS_EX AMSD In multiplayer, draw tracers all the time.
-		if ( ((Level.NetMode == NM_Standalone) && (!bZoomed && (numSlugs == 1) && (FRand() < 0.5))) ||
+		// Stupid Ex: Spawn a tracer **EVERY** time.
+//		if ( ((Level.NetMode == NM_Standalone) && (!bZoomed && (numSlugs == 1) && (FRand() < 0.5))) ||
+		if ( ((Level.NetMode == NM_Standalone) && (!bZoomed && (numSlugs == 1))) ||
            ((Level.NetMode != NM_Standalone) && (Role == ROLE_Authority) && (numSlugs == 1)) )
 		{
 			if ((AmmoName == Class'Ammo10mm') || (AmmoName == Class'Ammo3006') ||

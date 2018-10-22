@@ -61,4 +61,5 @@ defaultproperties
      Mesh=LodMesh'DeusExItems.ShurikenPickup'
      CollisionRadius=5.000000
      CollisionHeight=0.300000
+	 bDebris=True
 }

@@ -4,7 +4,8 @@
 
 class PersonaScreenAugmentations extends PersonaScreenBaseWindow;
 
-#exec TEXTURE IMPORT FILE="Textures\AugmentationsBorder_6.bmp"		NAME="AugmentationsBorder_6"		GROUP="VMUI" MIPS=Off
+// Stupid Ex: Import these using 'ucc build'.
+//#exec TEXTURE IMPORT FILE="Textures\AugmentationsBorder_6.bmp"		NAME="AugmentationsBorder_6"		GROUP="VMUI" MIPS=Off
 
 var PersonaActionButtonWindow			btnActivate;
 var PersonaActionButtonWindow			btnUpgrade;
@@ -914,7 +915,7 @@ defaultproperties
      clientBorderTextures(2)=Texture'DeusExUI.UserInterface.AugmentationsBorder_3'
      clientBorderTextures(3)=Texture'DeusExUI.UserInterface.AugmentationsBorder_4'
      clientBorderTextures(4)=Texture'DeusExUI.UserInterface.AugmentationsBorder_5'
-     clientBorderTextures(5)=Texture'DeusEx.VMUI.AugmentationsBorder_6'
+     clientBorderTextures(5)=Texture'DeusEx.UserInterface.AugmentationsBorder_6'
      clientTextureRows=2
      clientTextureCols=3
      clientBorderTextureRows=2

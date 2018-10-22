@@ -5,6 +5,8 @@ class Augmentation extends Actor
 	intrinsic;
 
 // Vanilla Matters: Import aug icons that have a pinkmask instead of blackmask.
+// Stupid Ex: Import these using 'ucc build'.
+/*
 #exec TEXTURE IMPORT FILE="Textures\AugIconCloak.bmp"		NAME="AugIconCloak"		GROUP="VMUI" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\AugIconCombat.bmp"		NAME="AugIconCombat"	GROUP="VMUI" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\AugIconDefense.bmp"		NAME="AugIconDefense"	GROUP="VMUI" MIPS=Off
@@ -15,6 +17,7 @@ class Augmentation extends Actor
 #exec TEXTURE IMPORT FILE="Textures\AugIconSpeed.bmp"		NAME="AugIconSpeed"		GROUP="VMUI" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\AugIconTarget.bmp"		NAME="AugIconTarget"	GROUP="VMUI" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\AugIconVision.bmp"		NAME="AugIconVision"	GROUP="VMUI" MIPS=Off
+*/
 
 var() bool bAutomatic;
 var() float EnergyRate;			

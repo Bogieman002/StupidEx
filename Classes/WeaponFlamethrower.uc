@@ -4,6 +4,7 @@
 class WeaponFlamethrower extends DeusExWeapon;
 
 // Vanilla Matters
+/*
 #exec AUDIO IMPORT FILE="Sounds\Flamethrower\fire1.wav"		NAME="FlamethrowerFire1"		GROUP="VMSounds"
 #exec AUDIO IMPORT FILE="Sounds\Flamethrower\fire2.wav"		NAME="FlamethrowerFire2"		GROUP="VMSounds"
 #exec AUDIO IMPORT FILE="Sounds\Flamethrower\fire3.wav"		NAME="FlamethrowerFire3"		GROUP="VMSounds"
@@ -12,6 +13,7 @@ class WeaponFlamethrower extends DeusExWeapon;
 #exec AUDIO IMPORT FILE="Sounds\Flamethrower\fire6.wav"		NAME="FlamethrowerFire6"		GROUP="VMSounds"
 #exec AUDIO IMPORT FILE="Sounds\Flamethrower\fire7.wav"		NAME="FlamethrowerFire7"		GROUP="VMSounds"
 #exec AUDIO IMPORT FILE="Sounds\Flamethrower\fire8.wav"		NAME="FlamethrowerFire8"		GROUP="VMSounds"
+*/
 
 // Vanilla Matters
 var int VM_currentSoundIndex;
@@ -68,14 +70,14 @@ simulated function Tick( float deltaTime ) {
 
 defaultproperties
 {
-     VM_fireSounds(0)=Sound'DeusEx.VMSounds.FlamethrowerFire1'
-     VM_fireSounds(1)=Sound'DeusEx.VMSounds.FlamethrowerFire2'
-     VM_fireSounds(2)=Sound'DeusEx.VMSounds.FlamethrowerFire3'
-     VM_fireSounds(3)=Sound'DeusEx.VMSounds.FlamethrowerFire4'
-     VM_fireSounds(4)=Sound'DeusEx.VMSounds.FlamethrowerFire5'
-     VM_fireSounds(5)=Sound'DeusEx.VMSounds.FlamethrowerFire6'
-     VM_fireSounds(6)=Sound'DeusEx.VMSounds.FlamethrowerFire7'
-     VM_fireSounds(7)=Sound'DeusEx.VMSounds.FlamethrowerFire8'
+     VM_fireSounds(0)=Sound'DeusEx.Weapons.FlamethrowerFire1'
+     VM_fireSounds(1)=Sound'DeusEx.Weapons.FlamethrowerFire2'
+     VM_fireSounds(2)=Sound'DeusEx.Weapons.FlamethrowerFire3'
+     VM_fireSounds(3)=Sound'DeusEx.Weapons.FlamethrowerFire4'
+     VM_fireSounds(4)=Sound'DeusEx.Weapons.FlamethrowerFire5'
+     VM_fireSounds(5)=Sound'DeusEx.Weapons.FlamethrowerFire6'
+     VM_fireSounds(6)=Sound'DeusEx.Weapons.FlamethrowerFire7'
+     VM_fireSounds(7)=Sound'DeusEx.Weapons.FlamethrowerFire8'
      burnTime=30
      burnDamage=5
      mpBurnTime=15
@@ -107,7 +109,7 @@ defaultproperties
      FireOffset=(Y=10.000000,Z=10.000000)
      ProjectileClass=Class'DeusEx.Fireball'
      shakemag=50.000000
-     FireSound=Sound'DeusEx.VMSounds.FlamethrowerFire1'
+     FireSound=Sound'DeusEx.Weapons.FlamethrowerFire1'
      AltFireSound=Sound'DeusExSounds.Weapons.FlamethrowerReloadEnd'
      CockingSound=Sound'DeusExSounds.Weapons.FlamethrowerReload'
      SelectSound=Sound'DeusExSounds.Weapons.FlamethrowerSelect'

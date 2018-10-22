@@ -3,7 +3,8 @@
 //=============================================================================
 class PersonaAugmentationBarSlot expands ToggleWindow;
 
-#exec TEXTURE IMPORT FILE="Textures\AugBarSlot.bmp"		NAME="AugBarSlot"		GROUP="VMUI" MIPS=Off
+// Stupid Ex: Import these using 'ucc build'.
+// #exec TEXTURE IMPORT FILE="Textures\AugBarSlot.bmp"		NAME="AugBarSlot"		GROUP="VMUI" MIPS=Off
 
 var DeusExPlayer player;
 var AugmentationManager augManager;
@@ -404,7 +405,7 @@ defaultproperties
      slotIconY=10
      slotNumberX=38
      slotNumberY=3
-     texBackground=Texture'DeusEx.VMUI.AugBarSlot'
+     texBackground=Texture'DeusEx.UserInterface.AugBarSlot'
      texBorders(0)=Texture'DeusExUI.UserInterface.PersonaItemHighlight_TL'
      texBorders(1)=Texture'DeusExUI.UserInterface.PersonaItemHighlight_TR'
      texBorders(2)=Texture'DeusExUI.UserInterface.PersonaItemHighlight_BL'

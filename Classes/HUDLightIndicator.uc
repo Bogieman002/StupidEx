@@ -3,8 +3,11 @@
 //=============================================================================
 class HUDLightIndicator expands HUDBaseWindow;
 
+// Stupid Ex: Import these using 'ucc build'.
+/*
 #exec TEXTURE IMPORT FILE="Textures\HUDLightBorder_1.bmp"		NAME="HUDLightBorder_1"			GROUP="VMUI" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\HUDLightBackground_1.bmp"	NAME="HUDLightBackground_1"		GROUP="VMUI" MIPS=Off
+*/
 
 var Texture texBackground;
 var Texture texBorder;
@@ -65,6 +68,6 @@ function SetVisibility( bool bNewVisibility ) {
 
 defaultproperties
 {
-     texBackground=Texture'DeusEx.VMUI.HUDLightBackground_1'
-     texBorder=Texture'DeusEx.VMUI.HUDLightBorder_1'
+     texBackground=Texture'DeusEx.UserInterface.HUDLightBackground_1'
+     texBorder=Texture'DeusEx.UserInterface.HUDLightBorder_1'
 }

@@ -108,5 +108,5 @@ defaultproperties
      LevelValues(3)=0.400000
      AugmentationLocation=LOC_Subdermal
      MPConflictSlot=6
-     VM_dragIcon=Texture'DeusEx.VMUI.AugIconCloak'
+     VM_dragIcon=Texture'DeusEx.Icons.AugIconCloak'
 }

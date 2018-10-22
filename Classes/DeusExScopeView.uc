@@ -4,8 +4,11 @@
 class DeusExScopeView expands Window;
 
 // Vanilla Matters: Import new sniper rifle scope view.
+// Stupid Ex: Import these using 'ucc build'.
+/*
 #exec TEXTURE IMPORT FILE="Textures\HUDScopeCrosshair.bmp"	NAME="HUDScopeCrosshair"	GROUP="VMUI" MIPS=Off
 #exec TEXTURE IMPORT FILE="Textures\HUDScopeView.bmp"		NAME="HUDScopeView"			GROUP="VMUI" MIPS=Off
+*/
 
 var bool bActive;		// is this view actually active?
 
@@ -183,13 +186,13 @@ event DrawWindow(GC gc)
 			gc.SetStyle(DSTY_Modulated);
 
 			// Vanilla Matters: Use our own fixed texture.
-			gc.DrawTexture( fromX, fromY, scopeWidth, scopeHeight, 0, 0, Texture'DeusEx.VMUI.HUDScopeView' );
+			gc.DrawTexture( fromX, fromY, scopeWidth, scopeHeight, 0, 0, Texture'DeusEx.UserInterface.HUDScopeView' );
 
 			gc.SetTileColor(colLines);
 			gc.SetStyle(DSTY_Masked);
 
 			// Vanilla Matters: Use our own fixed texture.
-			gc.DrawTexture( fromX, fromY, scopeWidth, scopeHeight, 0, 0, Texture'DeusEx.VMUI.HUDScopeCrosshair' );
+			gc.DrawTexture( fromX, fromY, scopeWidth, scopeHeight, 0, 0, Texture'DeusEx.UserInterface.HUDScopeCrosshair' );
 		}
 		else
 		{
