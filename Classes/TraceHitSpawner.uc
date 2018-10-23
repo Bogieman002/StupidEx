@@ -44,15 +44,16 @@ simulated function Timer()
 
 function name GetMaterial()
 {
-	local vector EndTrace, HitLocation, HitNormal;
+	local vector EndTrace,StartTrace, HitLocation, HitNormal;
+	local actor target;
 	local int texFlags;
 	local name texName, texGroup;
-	local actor target;
 
-	// trace towards the wall
-	EndTrace = Location + ( Vector( Rotation - Rot(0,32768,0) + Rot(32768,0,32768) ) * 1.5 );
+	// trace down to our feet
+	EndTrace = Location + Vector(Rotation)*-10;
+	StartTrace = Location + Vector(Rotation)*16;
 
-	foreach TraceTexture(class'Actor', target, texName, texGroup, texFlags, HitLocation, HitNormal, EndTrace)
+	foreach TraceTexture(class'Actor', target, texName, texGroup, texFlags, HitLocation, HitNormal, EndTrace,StartTrace)
 	{
 		if ((target == Level) || target.IsA('Mover'))
 			break;

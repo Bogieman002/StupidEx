@@ -49,6 +49,13 @@ var DeusExWeapon	VM_fromWeapon;			// Just something to store useful info like fr
 var DeusExAmmo		VM_withAmmo;			// Can't fetch these later on because the player can change weapon/ammo type.
 var float			mpDamage;				// Put this here so we can fetch from outside.
 
+// Stupid Ex.
+
+var Sound softRicochetSounds[2];
+var Sound glassRicochetSounds[4];
+var Sound woodRicochetSounds[4];
+var Sound armorRicochetSounds[3];
+
 // network replication
 replication
 {
@@ -311,7 +318,7 @@ simulated function SpawnEffects(Vector HitLocation, Vector HitNormal, Actor Othe
 		if (DeusExMover(Other).bDestroyed)
 			ExplosionDecal = None;
 			
-	mat = GetWallMaterial(HitLocation, HitNormal);
+	mat = GetWallMaterial();
 
 	// draw the explosion decal here, not in Engine.Projectile
 	if (ExplosionDecal != None)
@@ -546,12 +553,51 @@ Begin:
 
 function PlayImpactSound()
 {
-	local float rad;
+	local float rad, rnd;
+	local name mat;
+	local Sound snd;
+	
+	rnd = FRand();
+	mat = GetWallMaterial();
+	snd = None;
+	
+	switch(mat)
+	{
+		case 'Textile':
+		case 'Paper':
+		case 'Foliage':
+		case 'Earth':
+			snd = softRicochetSounds[ Rand( 1 ) ];
+			break;
+		case 'Metal':
+		case 'Ladder':
+			snd = armorRicochetSounds[ Rand( 2 ) ];
+			break;
+		case 'Ceramic':
+		case 'Glass':
+		case 'Tiles':
+			snd = glassRicochetSounds[ Rand( 3 ) ];
+			break;
+		case 'Wood':
+			snd = woodRicochetSounds[ Rand( 3 ) ];	
+			break;
+		case 'Brick':
+		case 'Concrete':
+		case 'Stone':
+		case 'Stucco':
+		default:
+			break;
+	}
 
 	if ((Level.NetMode == NM_Standalone) || (Level.NetMode == NM_ListenServer) || (Level.NetMode == NM_DedicatedServer))
 	{
 		rad = Max(blastRadius*4, 1024);
-		PlaySound(ImpactSound, SLOT_None, 2.0,, rad);
+		
+		if (bStickToWall)
+		{
+			PlaySound(ImpactSound, SLOT_None, 2.0,, rad);
+			PlaySound(snd, SLOT_None, 2.0,, rad);
+		}
 	}
 }
 
@@ -694,24 +740,22 @@ auto simulated state Flying
 	}
 }
 
-function name GetWallMaterial(vector HitLocation, vector HitNormal)
+function name GetWallMaterial()
 {
-	local vector EndTrace, StartTrace;
+	local vector EndTrace,StartTrace, HitLocation, HitNormal;
 	local actor target;
 	local int texFlags;
 	local name texName, texGroup;
-	
-	EndTrace = Location + ( Vector ( Rotation ) * 32 );
-	
-	if (Self.IsA('Shuriken'))
-		EndTrace = Location + ( InitDir * 32 );	
 
-	foreach TraceTexture(class'Actor', target, texName, texGroup, texFlags, HitLocation, HitNormal, EndTrace)
+	// trace down to our feet
+	EndTrace = Location + InitDir*-10;
+	StartTrace = Location + InitDir*16;
+
+	foreach TraceTexture(class'Actor', target, texName, texGroup, texFlags, HitLocation, HitNormal, EndTrace,StartTrace)
+	{
 		if ((target == Level) || target.IsA('Mover'))
 			break;
-			
-	log(texGroup);
-	log(texName);
+	}
 
 	return texGroup;
 }
@@ -729,4 +773,17 @@ defaultproperties
      RemoteRole=ROLE_SimulatedProxy
      LifeSpan=60.000000
      RotationRate=(Pitch=65536,Yaw=65536)
+	 softRicochetSounds(0)=Sound'DeusEx.Generic.SoftRicochet1'
+	 softRicochetSounds(1)=Sound'DeusEx.Generic.SoftRicochet2'
+	 glassRicochetSounds(0)=Sound'DeusEx.Generic.GlassRicochet1'
+	 glassRicochetSounds(1)=Sound'DeusEx.Generic.GlassRicochet2'
+	 glassRicochetSounds(2)=Sound'DeusEx.Generic.GlassRicochet3'
+	 glassRicochetSounds(3)=Sound'DeusEx.Generic.GlassRicochet4'
+	 woodRicochetSounds(0)=Sound'DeusEx.Generic.WoodRicochet1'
+	 woodRicochetSounds(1)=Sound'DeusEx.Generic.WoodRicochet2'
+	 woodRicochetSounds(2)=Sound'DeusEx.Generic.WoodRicochet3'
+	 woodRicochetSounds(3)=Sound'DeusEx.Generic.WoodRicochet4'
+	 armorRicochetSounds(0)=Sound'DeusExSounds.Generic.ArmorRicochet'
+	 armorRicochetSounds(1)=Sound'DeusEx.Generic.ArmorRicochet2'
+	 armorRicochetSounds(2)=Sound'DeusEx.Generic.ArmorRicochet3'
 }
